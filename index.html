@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil | Yazid Bastomi, S.Pt.</title>
+    <title>Profil Profesional | Yazid Bastomi, S.Pt.</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Lora:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -12,9 +12,9 @@
     <style>
         /* --- PALET WARNA ELEGAN "GOLDEN HARVEST" --- */
         :root {
-            --primary-green: #1a3c2b; /* Hijau Hutan yang Dalam & Mewah */
-            --accent-gold: #c4a77d;   /* Emas Muted yang Tidak Menyilaukan */
-            --bg-cream: #f9f8f4;      /* Latar belakang Ivory yang Lembut */
+            --primary-green: #1a3c2b; 
+            --accent-gold: #c4a77d;   
+            --bg-cream: #f9f8f4;      
             --text-dark: #2c2c2c;
             --text-light: #ffffff;
             
@@ -32,21 +32,22 @@
             overflow-x: hidden;
         }
 
-        /* --- NAVBAR MEWAH --- */
+        /* --- NAVBAR MEWAH & RESPONSIVE --- */
         nav {
             position: fixed; top: 0; width: 100%; padding: 1.2rem 8%;
             display: flex; justify-content: space-between; align-items: center;
-            background: rgba(249, 248, 244, 0.95); backdrop-filter: blur(15px);
+            background: rgba(249, 248, 244, 0.98); backdrop-filter: blur(15px);
             z-index: 1000; border-bottom: 1px solid rgba(196, 167, 125, 0.2);
         }
         .logo { 
-            font-family: var(--font-serif); font-size: 1.6rem; color: var(--primary-green); font-weight: 700; 
+            font-family: var(--font-serif); font-size: 1.5rem; color: var(--primary-green); font-weight: 700; 
             display: flex; align-items: center; gap: 10px;
         }
         .logo i { color: var(--accent-gold); }
+        .nav-links { display: flex; align-items: center; }
         .nav-links a { 
             color: var(--primary-green); text-decoration: none; margin-left: 2.5rem; 
-            font-weight: 500; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s;
+            font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s;
             position: relative;
         }
         .nav-links a::after {
@@ -54,9 +55,12 @@
         }
         .nav-links a:hover::after { width: 100%; }
 
-        /* --- HERO SECTION (BAGIAN ATAS) --- */
+        /* Tombol Hamburger untuk HP */
+        .menu-toggle { display: none; font-size: 1.5rem; color: var(--primary-green); cursor: pointer; }
+
+        /* --- HERO SECTION --- */
         .hero {
-            min-height: 90vh; padding: 10rem 8% 5rem;
+            min-height: 100vh; padding: 10rem 8% 5rem;
             display: flex; align-items: center; justify-content: space-between; gap: 4rem;
             background: linear-gradient(to right, var(--bg-cream) 50%, #f0efea 100%);
         }
@@ -70,7 +74,7 @@
         .hero h1 span { color: var(--accent-gold); font-style: italic; }
         .hero p { font-size: 1.1rem; color: #555; margin-bottom: 2.5rem; max-width: 550px; border-left: 3px solid var(--accent-gold); padding-left: 20px; }
 
-        .hero-image-container { flex: 0.9; position: relative; }
+        .hero-image-container { flex: 0.9; position: relative; width: 100%; }
         /* Bingkai Foto Profil */
         .profile-frame {
             position: relative; width: 100%; height: 550px; 
@@ -79,13 +83,12 @@
         }
         .profile-frame img { width: 100%; height: 100%; object-fit: cover; }
         
-        /* Ornamen di belakang foto */
         .deco-box {
             position: absolute; top: -30px; right: -30px; width: 200px; height: 200px;
             border: 3px solid var(--accent-gold); z-index: -1; border-radius: 20px; opacity: 0.5;
         }
 
-        /* --- PAPAN NAMA (NAMEPLATE) DI BAWAH FOTO --- */
+        /* --- PAPAN NAMA (NAMEPLATE) --- */
         .nameplate {
             position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%);
             background: #ffffff; padding: 15px 35px; border-radius: 12px;
@@ -95,7 +98,7 @@
         }
         .nameplate h3 { 
             font-family: var(--font-serif); color: var(--primary-green); 
-            font-size: 1.5rem; margin-bottom: 2px; letter-spacing: 0.5px;
+            font-size: 1.5rem; margin-bottom: 2px; letter-spacing: 0.5px; white-space: nowrap;
         }
         .nameplate span { 
             color: var(--accent-gold); font-size: 0.85rem; font-weight: 600; 
@@ -106,25 +109,52 @@
         section { padding: 8rem 8%; }
         .section-header { text-align: center; margin-bottom: 5rem; }
         .section-subtitle { color: var(--accent-gold); font-weight: 600; letter-spacing: 3px; text-transform: uppercase; display: block; margin-bottom: 10px; font-size: 0.9rem; }
-        .section-title { font-family: var(--font-serif); font-size: 3rem; color: var(--primary-green); }
+        .section-title { font-family: var(--font-serif); font-size: 3rem; color: var(--primary-green); line-height: 1.2; }
+
+        /* --- STATISTIK --- */
+        .stats-wrapper { margin-top: -2rem; margin-bottom: 2rem; }
+        .stats-container {
+            background: var(--primary-green); padding: 4rem 8%; border-radius: 20px;
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+            color: var(--text-light); text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .stat-box h3 { font-family: var(--font-serif); font-size: 3rem; color: var(--accent-gold); margin-bottom: 5px; }
+        .stat-box p { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.9; }
+
+        /* --- TENTANG & KEAHLIAN --- */
+        .about-section { text-align: center; max-width: 800px; margin: 0 auto; }
+        .about-section p { font-size: 1.15rem; color: #555; margin-bottom: 2rem; }
+        .quote-text { font-family: var(--font-serif); font-size: 1.5rem; color: var(--primary-green); font-style: italic; margin-top: 2rem; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 2rem; }
+
+        .expertise-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-top: 5rem;
+        }
+        .expertise-card {
+            background: #fff; padding: 3rem 2rem; border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center;
+            border-bottom: 3px solid transparent; transition: 0.4s;
+        }
+        .expertise-card:hover { transform: translateY(-10px); border-color: var(--accent-gold); }
+        .expertise-card i { font-size: 2.5rem; color: var(--primary-green); margin-bottom: 1.5rem; }
+        .expertise-card h4 { font-family: var(--font-serif); font-size: 1.4rem; color: var(--primary-green); margin-bottom: 1rem; }
+        .expertise-card p { font-size: 0.95rem; color: #666; }
 
         /* --- GALERI FOTO ELEGAN --- */
         .gallery-grid { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-            gap: 30px; 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 25px; 
         }
         .gallery-card {
-            position: relative; height: 400px; border-radius: 12px; overflow: hidden;
+            position: relative; height: 380px; border-radius: 12px; overflow: hidden;
             box-shadow: 0 15px 30px rgba(0,0,0,0.08); cursor: pointer;
         }
         .gallery-card img {
             width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease;
         }
-        /* Overlay Hitam Transparan saat Hover */
         .gallery-overlay {
             position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to top, rgba(26, 60, 43, 0.95) 0%, rgba(26, 60, 43, 0.4) 60%, transparent 100%);
-            display: flex; flex-direction: column; justify-content: flex-end; padding: 30px;
+            background: linear-gradient(to top, rgba(26, 60, 43, 0.95) 0%, rgba(26, 60, 43, 0.3) 60%, transparent 100%);
+            display: flex; flex-direction: column; justify-content: flex-end; padding: 25px;
             opacity: 0; transition: 0.4s ease;
         }
         .gallery-card:hover img { transform: scale(1.08); }
@@ -133,24 +163,85 @@
         .overlay-content { transform: translateY(30px); transition: 0.5s ease; }
         .gallery-card:hover .overlay-content { transform: translateY(0); }
 
-        .gallery-location { color: var(--accent-gold); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; display: block; }
-        .gallery-title { font-family: var(--font-serif); color: var(--text-light); font-size: 1.5rem; margin-bottom: 0; line-height: 1.3; }
+        .gallery-location { color: var(--accent-gold); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; display: block; }
+        .gallery-title { font-family: var(--font-serif); color: var(--text-light); font-size: 1.3rem; margin-bottom: 0; line-height: 1.3; }
+
+        /* --- KONTAK SECTION --- */
+        .contact-section {
+            background: linear-gradient(rgba(249, 248, 244, 0.9), rgba(249, 248, 244, 0.9)), url('https://www.transparenttextures.com/patterns/cubes.png');
+            text-align: center;
+        }
+        .contact-box {
+            background: #fff; max-width: 800px; margin: 0 auto; padding: 4rem;
+            border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--primary-green);
+        }
+        .contact-box h2 { font-family: var(--font-serif); font-size: 2.5rem; color: var(--primary-green); margin-bottom: 1rem; }
+        .contact-box p { color: #555; margin-bottom: 2rem; font-size: 1.05rem; }
+        .btn-contact {
+            display: inline-block; padding: 1rem 2.5rem; background: var(--primary-green);
+            color: var(--text-light); text-decoration: none; font-weight: 600; border-radius: 5px;
+            transition: 0.3s;
+        }
+        .btn-contact:hover { background: var(--accent-gold); color: var(--primary-green); }
 
         /* --- FOOTER --- */
         footer {
-            background: var(--primary-green); color: var(--bg-cream); padding: 4rem 8%;
+            background: var(--primary-green); color: var(--bg-cream); padding: 4rem 8% 2rem;
             text-align: center; position: relative;
         }
-        .footer-content { max-width: 600px; margin: 0 auto; }
         .footer-logo { font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 1rem; color: var(--accent-gold); }
 
+        /* ========================================================
+           OPTIMASI UNTUK HP / MOBILE (RESPONSIVE)
+           ======================================================== */
         @media (max-width: 968px) {
-            .hero { flex-direction: column; padding-top: 8rem; text-align: center; }
-            .hero h1 { font-size: 3rem; }
-            .hero p { margin: 0 auto 2.5rem; border-left: none; border-top: 3px solid var(--accent-gold); padding-top: 15px; padding-left: 0; }
-            .profile-frame { height: 450px; width: 90%; margin: 0 auto; }
-            .nameplate { width: 95%; bottom: -15px; }
-            .nav-links { display: none; }
+            /* Navbar Mobile */
+            nav { padding: 1rem 5%; }
+            .menu-toggle { display: block; z-index: 1001; }
+            .nav-links {
+                position: fixed; top: 0; right: -100%; width: 70%; height: 100vh;
+                background: #fff; flex-direction: column; justify-content: center;
+                transition: 0.4s ease; box-shadow: -10px 0 30px rgba(0,0,0,0.1); z-index: 1000;
+            }
+            .nav-links.active { right: 0; }
+            .nav-links a { margin: 1.5rem 0; font-size: 1.1rem; }
+
+            /* Hero Mobile */
+            .hero { flex-direction: column; padding: 8rem 5% 4rem; text-align: center; gap: 3rem; background: var(--bg-cream); }
+            .hero h1 { font-size: 2.8rem; }
+            .hero p { margin: 0 auto 2.5rem; border-left: none; border-top: 3px solid var(--accent-gold); padding-top: 15px; padding-left: 0; font-size: 1rem; }
+            
+            /* Profile Frame Mobile */
+            .profile-frame { height: 400px; max-width: 350px; margin: 0 auto; border-radius: 100px 100px 20px 20px; }
+            .deco-box { display: none; } /* Sembunyikan ornamen kotak agar tidak bertabrakan di HP */
+            .nameplate { width: 90%; max-width: 300px; bottom: -20px; padding: 12px 15px; }
+            .nameplate h3 { font-size: 1.2rem; white-space: normal; line-height: 1.2; margin-bottom: 5px;}
+            .nameplate span { font-size: 0.75rem; }
+
+            /* Grid & Sections Mobile */
+            section { padding: 5rem 5%; }
+            .section-title { font-size: 2.2rem; }
+            .stats-container { grid-template-columns: repeat(2, 1fr); padding: 3rem 5%; gap: 1.5rem; border-radius: 15px; }
+            .stat-box h3 { font-size: 2.2rem; }
+            
+            .expertise-grid { grid-template-columns: 1fr; gap: 1.5rem; margin-top: 3rem; }
+            .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+            
+            /* Agar teks galeri selalu muncul di HP (karena HP tidak bisa di-hover) */
+            .gallery-overlay { opacity: 1; background: linear-gradient(to top, rgba(26, 60, 43, 0.95) 0%, rgba(26, 60, 43, 0.3) 70%, transparent 100%); }
+            .overlay-content { transform: translateY(0); }
+
+            .contact-box { padding: 3rem 1.5rem; }
+            .contact-box h2 { font-size: 2rem; }
+            .quote-text { font-size: 1.2rem; }
+        }
+
+        /* Khusus HP Sangat Kecil (iPhone SE, dsb) */
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2.3rem; }
+            .profile-frame { height: 320px; max-width: 280px; }
+            .stats-container { grid-template-columns: 1fr; gap: 2rem; } /* Jadi 1 baris berderet ke bawah */
         }
     </style>
 </head>
@@ -160,9 +251,14 @@
         <div class="logo">
             <i class="fas fa-seedling"></i> YAZID BASTOMI
         </div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
         <div class="nav-links">
-            <a href="#beranda">Profil</a>
-            <a href="#galeri">Dokumentasi Lapangan</a>
+            <a href="#beranda" onclick="toggleMenu()">Beranda</a>
+            <a href="#tentang" onclick="toggleMenu()">Filosofi & Fokus</a>
+            <a href="#galeri" onclick="toggleMenu()">Dokumentasi</a>
+            <a href="#kontak" onclick="toggleMenu()">Kontak</a>
         </div>
     </nav>
 
@@ -184,11 +280,58 @@
                 <h3>Yazid Bastomi, S.Pt.</h3>
                 <span>Penyuluh Pertanian Lapangan</span>
             </div>
-
         </div>
     </section>
 
-    <section id="galeri">
+    <div class="stats-wrapper" style="padding: 0 8%;">
+        <div class="stats-container" data-aos="fade-up">
+            <div class="stat-box">
+                <h3>20+</h3>
+                <p>Tahun Pengabdian</p>
+            </div>
+            <div class="stat-box">
+                <h3>50+</h3>
+                <p>Kelompok Tani</p>
+            </div>
+            <div class="stat-box">
+                <h3>15+</h3>
+                <p>Program Inovasi</p>
+            </div>
+            <div class="stat-box">
+                <h3>100%</h3>
+                <p>Dedikasi Pangan</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="tentang">
+        <div class="about-section" data-aos="fade-up">
+            <span class="section-subtitle">Nilai & Filosofi</span>
+            <h2 class="section-title" style="margin-bottom: 2rem;">Pendekatan dari Hati ke Hati</h2>
+            <p>Bagi saya, menjadi seorang Penyuluh Pertanian bukan sekadar pekerjaan administratif, melainkan sebuah panggilan jiwa untuk mendampingi para pahlawan pangan kita. Keberhasilan sektor agrikultur bermula dari pematang sawah, dari tangan-tangan terampil petani yang membutuhkan sentuhan inovasi dan teknologi tepat guna.</p>
+            <p class="quote-text">"Kedaulatan pangan nasional tidak dibangun dari atas meja, melainkan tumbuh dari benih yang dirawat bersama di lahan basah."</p>
+        </div>
+
+        <div class="expertise-grid">
+            <div class="expertise-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-users-viewfinder"></i>
+                <h4>Pemberdayaan Kelompok Tani</h4>
+                <p>Membina manajerial Gapoktan (Gabungan Kelompok Tani) untuk meningkatkan kemandirian dan posisi tawar hasil panen di pasar.</p>
+            </div>
+            <div class="expertise-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-tractor"></i>
+                <h4>Mekanisasi & Teknologi</h4>
+                <p>Mengawal implementasi Alsintan (Alat Mesin Pertanian) modern agar proses budidaya menjadi lebih efisien dan terukur.</p>
+            </div>
+            <div class="expertise-card" data-aos="fade-up" data-aos-delay="300">
+                <i class="fas fa-seedling"></i>
+                <h4>Praktik Tanam Presisi</h4>
+                <p>Sosialisasi penggunaan varietas unggul dan pupuk berimbang untuk menjaga kualitas tanah secara berkelanjutan.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeri" style="background: #fff;">
         <div class="section-header" data-aos="fade-up">
             <span class="section-subtitle">Rekam Jejak Visual</span>
             <h2 class="section-title">Galeri Kegiatan Penyuluhan</h2>
@@ -198,66 +341,60 @@
             
             <div class="gallery-card" data-aos="fade-up">
                 <img src="1.jpeg" alt="Kegiatan 1">
-                
                 <div class="gallery-overlay">
                     <div class="overlay-content">
-                        <span class="gallery-location"><i class="fas fa-map-marker-alt"></i> Kecamatan Diwek</span>
-                        <h3 class="gallery-title">Gerdal xantomhonas di poktang pranggang</h3>
+                        <span class="gallery-location"><i class="fas fa-map-marker-alt"></i> Lahan Observasi</span>
+                        <h3 class="gallery-title">Monitoring Perkembangan Tanaman</h3>
                     </div>
                 </div>
             </div>
 
             <div class="gallery-card" data-aos="fade-up" data-aos-delay="150">
                 <img src="2.jpeg" alt="Kegiatan 2">
-                
                 <div class="gallery-overlay">
                     <div class="overlay-content">
-                        <span class="gallery-location"><i class="fas fa-users"></i> Kecamatan Diwek</span>
-                        <h3 class="gallery-title">Gerdal pengendalian penyakit hawar daun (xanthomonas) di poktan pranggang Desa brambang Kec Diwek Kab Jombang</h3>
+                        <span class="gallery-location"><i class="fas fa-users"></i> Saung Tani</span>
+                        <h3 class="gallery-title">Dialog & Temu Wicara Petani</h3>
                     </div>
                 </div>
             </div>
 
             <div class="gallery-card" data-aos="fade-up" data-aos-delay="300">
                 <img src="3.jpeg" alt="Kegiatan 3">
-                
                 <div class="gallery-overlay">
                     <div class="overlay-content">
-                        <span class="gallery-location"><i class="fas fa-seedling"></i> Tebu Ireng Jombang</span>
-                        <h3 class="gallery-title">Ngaji tani "praktek budidaya tanaman anggur bersama santriwati pondok pesantren al-furqon Tanfidzul Qur'an Darul Falah 5</h3>
+                        <span class="gallery-location"><i class="fas fa-seedling"></i> Lahan Percontohan</span>
+                        <h3 class="gallery-title">Uji Coba Varietas Unggul</h3>
                     </div>
                 </div>
             </div>
 
             <div class="gallery-card" data-aos="fade-up">
                 <img src="4.jpeg" alt="Kegiatan 4">
-                
                 <div class="gallery-overlay">
                     <div class="overlay-content">
-                        <span class="gallery-location"><i class="fas fa-handshake"></i> Desa Jati Pelem Kecamatan Diwek Jombang </span>
-                        <h3 class="gallery-title">Praktek Pembuatan media tanam di KWT (kelompok wanita tani) poktan Pelem</h3>
+                        <span class="gallery-location"><i class="fas fa-handshake"></i> Koordinasi Instansi</span>
+                        <h3 class="gallery-title">Penyelarasan Program Bantuan</h3>
                     </div>
                 </div>
             </div>
 
             <div class="gallery-card" data-aos="fade-up" data-aos-delay="150">
                 <img src="5.jpeg" alt="Kegiatan 5">
-                
                 <div class="gallery-overlay">
                     <div class="overlay-content">
-                        <span class="gallery-location"><i class="fas fa-tractor"></i> Kecapata Diwek</span>
-                        <h3 class="gallery-title">Pembuatan Media tanam</h3>
+                        <span class="gallery-location"><i class="fas fa-tractor"></i> Persiapan Lahan</span>
+                        <h3 class="gallery-title">Optimalisasi Mekanisasi Tanam</h3>
                     </div>
                 </div>
             </div>
 
              <div class="gallery-card" data-aos="fade-up" data-aos-delay="300">
                 <img src="6.jpeg" alt="Kegiatan 6">
-                
                 <div class="gallery-overlay">
                     <div class="overlay-content">
-                        <span class="gallery-location"><i class="fas fa-leaf"></i> al fulqorn darul fallah 5</span>
-                        <h3 class="gallery-title">Penyuluhan Budidaya Tanaman Anggur </h3>
+                        <span class="gallery-location"><i class="fas fa-leaf"></i> Pendampingan Kelompok</span>
+                        <h3 class="gallery-title">Evaluasi Hasil Panen Raya</h3>
                     </div>
                 </div>
             </div>
@@ -265,17 +402,47 @@
         </div>
     </section>
 
+    <section class="contact-section" id="kontak">
+        <div class="contact-box" data-aos="zoom-in">
+            <h2>Mari Bersinergi</h2>
+            <p>Terbuka untuk ruang diskusi, koordinasi program strategis, dan kolaborasi dalam memajukan kesejahteraan petani di wilayah binaan.</p>
+            <a href="mailto:email.kedinasan@gmail.com" class="btn-contact">
+                <i class="fas fa-envelope" style="margin-right: 8px;"></i> Hubungi Via Email
+            </a>
+            <div style="margin-top: 2rem; color: #777; font-size: 0.95rem;">
+                <i class="fas fa-building" style="color: var(--accent-gold); margin-right: 5px;"></i> Balai Penyuluhan Pertanian
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="footer-content">
             <div class="footer-logo"><i class="fas fa-seedling" style="color: var(--accent-gold);"></i> Yazid Bastomi, S.Pt.</div>
-            <p>• Penyuluh Pertanian • Kementerian Pertanian RI</p>
+            <p>Abdi Negara • Penyuluh Pertanian Lapangan • Kementerian Pertanian RI</p>
             <p style="opacity: 0.6; font-size: 0.9rem; margin-top: 2rem;">&copy; 2026. Dibuat dengan dedikasi untuk pertanian Indonesia.</p>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true, offset: 80 });
+        // Animasi Scroll
+        AOS.init({ duration: 1000, once: true, offset: 50 });
+
+        // Fungsi Tombol Menu Hamburger untuk HP
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            const icon = document.querySelector('.menu-toggle i');
+            
+            navLinks.classList.toggle('active');
+            
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times'); // Ubah jadi tanda X (Close)
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars'); // Kembalikan ke garis tiga
+            }
+        }
     </script>
 </body>
 </html>
